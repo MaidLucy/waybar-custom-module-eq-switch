@@ -1,0 +1,11 @@
+    "custom/eqswitch": {
+        "exec": "pw-dump | jq -f ./eq-switch.jq --compact-output --unbuffered",
+	"on-click": "./eq-switch.sh",
+        "interval": 1,
+	"return-type": "json",
+        "format": "eq: {icon}",
+        "format-icons": {
+	    "enabled": "",
+	    "disabled": ""
+	}
+    }
