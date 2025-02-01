@@ -1,11 +1,14 @@
     "custom/eqswitch": {
-        "exec": "pw-dump | jq -f ./eq-switch.jq --compact-output --unbuffered",
-	"on-click": "./eq-switch.sh",
+        "exec": "pw-dump | jq -f ./Software/waybar-custom-module-eq-switch/eq-switch.jq --compact-output --unbuffered",
+	"on-click": "./Software/waybar-custom-module-eq-switch/eq-switch.sh eqt",
+	"on-scroll-up": "./Software/waybar-custom-module-eq-switch/eq-switch.sh sub-",
+	"on-scroll-down": "./Software/waybar-custom-module-eq-switch/eq-switch.sh sub+",
         "interval": 1,
 	"return-type": "json",
+	"tooltip": true,
         "format": "eq: {icon}",
         "format-icons": {
 	    "enabled": "",
 	    "disabled": ""
 	}
-    }
+    },

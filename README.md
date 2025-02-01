@@ -8,22 +8,28 @@ Said `jq` filter creates a new Json-object that is compatible with how waybar in
 
 There's a simple bash script that toggels the plugin on or off when you run it.
 
+It can also calculate dB-values in order to have a simple volume adjustment for my subwoofer.
+
 From there it was only a bit of waybar config:
 
 ```json
-    "custom/eqswitch": {
+"custom/eqswitch": {
         "exec": "pw-dump | jq -f ./eq-switch.jq --compact-output --unbuffered",
-        "on-click": "./eq-switch.sh",
+	"on-click": "./eq-switch.sh eqt",
+	"on-scroll-up": "./eq-switch.sh sub-",
+	"on-scroll-down": "./eq-switch.sh sub+",
         "interval": 1,
-        "return-type": "json",
+	"return-type": "json",
+	"tooltip": true,
         "format": "eq: {icon}",
         "format-icons": {
-            "enabled": "",
-            "disabled": ""
-        }
-    }
+	    "enabled": "",
+	    "disabled": ""
+	}
+}
+    
 ```
 
-Alter `exec` and `on-click` to adjust for the paths were you cloned this repository.
+Alter `exec`, `on-click`, `on-scroll-up`, `on-scroll-down` to adjust for the paths where you cloned this repository.
 
 Have fun with it!

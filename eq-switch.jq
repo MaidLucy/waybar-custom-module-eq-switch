@@ -32,6 +32,7 @@ map(. | select(
     "id": .id,
     "text": .id,
     "sub_vol": .sub_vol,
+    "tooltip": ("sub volume: " + (.sub_vol | tostring) + "dB"),
     "sub_p1": pow(10; (.sub_vol + 1) / 20),
     "sub_m1": pow(10; (.sub_vol - 1) / 20),
     "percentage": (if .eq_enabled == true then 100 else 0 end),
